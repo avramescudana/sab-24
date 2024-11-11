@@ -1,0 +1,260 @@
+% Copyright 2015 by Facundo Muñoz
+%
+% This file may be distributed and/or modified
+%
+% 1. under the LaTeX Project Public License and/or
+% 2. under the GNU Public License.
+%
+
+
+\ProvidesPackage{beamerthemesimple}
+
+%\def\beamer@simplecolor{gris}
+%\DeclareOptionBeamer{color}{\beamer@simplecolor=#1}
+%\ExecuteOptionsBeamer{gris}
+%\ProcessOptionsBeamer
+
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes,trees,positioning,fadings}
+
+\input xkeyval
+
+\newcommand<>{\includeoverlaygraphics}[2][]
+{
+  \begin{tikzpicture}
+    \alt#3{\node[opacity=1] {\includegraphics[#1]{#2}};}
+          {\node[opacity=.15] {\includegraphics[#1]{#2}};}
+  \end{tikzpicture}
+}
+
+% These define macros \KV@setwatermark@hoffset that take one argument
+% which is processed by the last piece of codes into braces
+\def\@hos{}
+\def\@vos{}
+\def\@alpha{} % This one does not work. Why?
+\define@key{setwatermark}{hoffset}[\def\@hos{.}]{\def\@hos{\hspace*{#1}}} 
+\define@key{setwatermark}{voffset}[\def\@vos{.}]{\def\@vos{\vspace*{#1}}} 
+\define@key{setwatermark}{alpha}[\def\@alpha{0.7}]{\def\@alpha{#1}} 
+
+\def\setwatermark{\@ifnextchar[\@setwatermark{\@setwatermark[]}}
+\def\@setwatermark[#1]#2{%
+  \setkeys{setwatermark}{#1}%
+  \def\@watermark{#2}
+}
+% \newcommand{\setwatermark}[1]{\def\@watermark{#1}}
+\setwatermark{}   % Empty initialization
+
+
+\mode<presentation>
+
+  % http://www.colorcombos.com/color-scheme-275.html
+  \definecolor{destacado}{HTML}{515151} % gris oscuro
+  \definecolor{normal}{HTML}{797979}  % gris medio
+  \definecolor{fondo}{HTML}{e6e6e6}  % gris claro
+ 
+  \setbeamercolor{normal text}{bg=white,fg=normal}
+  \setbeamercolor*{block title}{bg=fondo,fg=destacado}
+  \setbeamercolor*{block body}{bg=fondo,fg=normal}
+  \setbeamercolor{alerted text}{fg=black}
+  
+  \usetheme{default}
+%  \usecolortheme[named=gris]{structure}
+  \usecolortheme[named=destacado]{structure}
+  \usefonttheme{structurebold}
+
+  % overlays semitransparentes
+  \setbeamercovered{transparent}
+  
+  % incluir el contador de diapos
+%   \setbeamertemplate{footline}[frame number]
+  
+  % eliminar íconos de nav.
+%   \setbeamertemplate{navigation symbols}{}
+  
+  % bloques
+  \setbeamertemplate{blocks}[rounded][shadow=true]
+
+  % especificación global para listas
+  %\beamerdefaultoverlayspecification{<+-| alert@+>}
+  
+  % márgenes
+  \setbeamersize{text margin left=0.4cm,text margin right=0.4cm}
+  
+%   \setbeamertemplate{background}{
+%   \parbox[c][\paperheight]{\paperwidth}{%
+%     \vfill \hfill 
+%     \begin{tikzpicture}
+%       %\node[opacity=\@alpha]  % not working. why?
+%       \node[opacity=.07]
+%       {
+%         \@watermark
+%       };
+%     \end{tikzpicture}
+%     \@hos
+    
+%     \@vos
+%   }
+% } 
+
+% \usepackage{tikz}
+% \usetikzlibrary{calc,patterns.meta}
+% % To provide total amount of sections throughout the document
+% \usepackage{totcount}
+% % Registers de total amount of sections (see https://tex.stackexchange.com/a/192506/141947)
+% \regtotcounter{section}
+% % To be able to refer to sections when needed
+% \usepackage{nameref}
+% % Redefinition of the \section command so that each one is labeled \label{sec:n} where n is its index 
+% \let\oldsection\section
+% \renewcommand{\section}[2][\relax]{%
+%     \ifx#1\relax
+%       \oldsection{#2}%
+%     \else
+%       \oldsection[#1]{#2}%
+%     \fi%
+%     \label{sec:\thesection}%
+% }
+
+% % Definition of custom colors based on the initial figure of the bar by the OP
+% % \definecolor{starrysecond}{HTML}{57AED1}
+% % \definecolor{starrymain}{HTML}{8BC53F}
+% \definecolor{mygray}{HTML}{DDDDDD}
+
+% % Definition of custom tikz styles in order to ease readability
+% \tikzset{
+%     % Bar style (Argument : color)
+%     sectionbar/.style={
+%         % Filling with one color as a preaction, in order to avoid reset by the pattern color
+%         preaction={fill=#1!70},
+%     },
+%     % Node style (Arguments : color, section number)
+%     sectionnode/.style 2 args={
+%         fill=#1,
+%         draw=white,
+%         thick,
+%         circle,
+%         text=white,
+%         radius=10pt,
+%         % Display of the section name below the cicle
+%         label={[text=#1]below:\nameref{sec:#2}},
+%         }
+% }
+
+
+% % Actual definition of the colorbar based on Gonzalo Medina's initial proposal
+% \makeatletter
+%     \def\pbar@progressbar{} % the progress bar
+%     \newcount\pbar@tmpcnta% auxiliary counter
+%     \newcount\pbar@tmpcntb% auxiliary counter
+%     \newdimen\pbar@pbht %progressbar height
+%     \newdimen\pbar@pbwd %progressbar width
+%     \newdimen\pbar@tmpdim % auxiliary dimension
+%     \pbar@pbwd=\linewidth
+%     \pbar@pbht=3pt
+
+% % The progress bar
+% \def\pbar@progressbar{%
+%     \pbar@tmpcnta=\value{section} % tmpcnta stores the section number
+%     \pbar@tmpcntb=\totvalue{section} % tmbcountb sotres the total amount of sections
+%     \advance\pbar@tmpcntb by 1 % tmbcountb is advanced by 1 in order to have the last bar segment after the last node
+
+%     \begin{tikzpicture}[very thin]
+%         % Clipping scope to avoid tests for the bar dimensions
+%         \begin{scope}
+%         % Clipping path
+%         \path[clip] (0pt,{-\pbar@pbht/2}) rectangle (\pbar@pbwd,{\pbar@pbht/2});
+%         % Gray bar (from 0 to last section)
+%         \path[sectionbar=mygray] (0pt,{-\pbar@pbht/2}) rectangle (\linewidth,{\pbar@pbht/2});
+%         % Blue bar (from 0 to the current section)
+%         \path[sectionbar=starrysecond] (0pt,{-\pbar@pbht/2}) rectangle ({(\pbar@tmpcnta-0.5)*\linewidth/\pbar@tmpcntb},{\pbar@pbht/2});
+%         % Green bar (from current to next section)
+%         \path[sectionbar=starrymain] ({(\pbar@tmpcnta-0.5)*\linewidth/\pbar@tmpcntb},{-\pbar@pbht/2}) rectangle ({(\pbar@tmpcnta+0.5)*\linewidth/\pbar@tmpcntb},{\pbar@pbht/2});
+%         \end{scope}
+%         % Drawing of the nodes on top of the bars, based on the number of the current section
+%         \foreach \secnumber in {1,...,\totvalue{section}}{
+%             % Number is lower, section is past, blue color
+%             \ifnum\secnumber<\pbar@tmpcnta
+%                 \node[sectionnode={starrysecond}{\secnumber}] at ({(\secnumber-0.5)*\linewidth/\pbar@tmpcntb},0) {\strut\secnumber};
+%             \fi
+%             % Number is equal, section is current, green color
+%             \ifnum\secnumber=\pbar@tmpcnta
+%                 \node[sectionnode={starrymain}{\secnumber}] at ({(\secnumber-0.5)*\linewidth/\pbar@tmpcntb},0) {\strut\secnumber};
+%             \fi
+%             % Number is larger, to be done section, gray color
+%             \ifnum\secnumber>\pbar@tmpcnta
+%             \node[sectionnode={mygray}{\secnumber}] at ({(\secnumber-0.5)*\linewidth/\pbar@tmpcntb},0) {\strut\secnumber};
+%             \fi
+%         }
+%   \end{tikzpicture}%
+% }
+
+% \addtobeamertemplate{headline}{}
+% {%
+%   \begin{beamercolorbox}[wd=\paperwidth,ht=10ex,center,dp=1ex]{white}%
+%     \pbar@progressbar%
+%   \end{beamercolorbox}%
+% }
+% \makeatother
+
+\definecolor{section head color}{RGB}{255,255,255}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%	define image frame
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newenvironment{blankframe}{
+    \setbeamertemplate{headline}{}
+    \addtobeamertemplate{frametitle}{\vspace*{-0.9\baselineskip}}{}
+    \setbeamertemplate{footline}{}
+}{}
+
+\newcommand\imageFrame[1]{%
+	\begin{blankframe}
+		\begin{frame}
+			\begin{tikzpicture}[remember picture,overlay]
+	            \node[at=(current page.center)] {
+	                \includegraphics[height=\paperheight]{#1}
+	            };
+	        \end{tikzpicture}
+		\end{frame}
+	\end{blankframe}
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%	define image frames with overlay
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand\imageFrameOverlay[5]{%
+	\ifcase\pdfstrcmp{#5}{left}
+		\def\xShift{}
+		\def\anchorShift{west}
+	\fi
+	\ifcase\pdfstrcmp{#5}{right}
+		\def\xShift{-}
+		\def\anchorShift{east}
+	\fi
+	
+	\begin{blankframe}
+		\begin{frame}
+			\begin{tikzpicture}[remember picture,overlay,headNfoot/.style={section head color,text width=#1, align=center, xshift=\xShift#1/2}]
+	            \node[at=(current page.center)] {
+	                \includegraphics[height=\paperheight]{#2}
+	            };
+	            \draw [draw=none,fill=second,opacity=.8] (current page.north \anchorShift) rectangle ([xshift=\xShift#1]current page.south \anchorShift);
+	            \node[headNfoot] at ([yshift=-#1/3]current page.north \anchorShift) {\fontsize{26pt}{30pt}\selectfont\hyphenchar\font=-1 #3\par};
+	            \node[headNfoot] at ([yshift=#1/3]current page.south \anchorShift) {\bfseries\fontsize{26pt}{30pt}\selectfont\hyphenchar\font=-1 #4\par};
+	        \end{tikzpicture}
+		\end{frame}
+	\end{blankframe}
+}
+
+\newcommand\imageFrameOverlayLeft[4][125pt]{%
+	\imageFrameOverlay{#1}{#2}{#3}{#4}{left}
+}
+
+\newcommand\imageFrameOverlayRight[4][125pt]{%
+	\imageFrameOverlay{#1}{#2}{#3}{#4}{right}
+}
+
+
+\mode
+<all>
