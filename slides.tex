@@ -175,9 +175,58 @@
     grow to right by=0.21cm,
     title={#2},fonttitle=\bfseries\large,#1
 }
+\newtcolorbox{custombox2transp}[3][]{%
+    enhanced jigsaw,%
+    colback=#3!4,%
+    colframe=#3,%
+    colbacktitle=#3!4,
+    coltext=normal,
+    center title,
+    % size=small,%
+    hbox,%
+    center title,%
+    % boxrule=1pt,%
+    % title=\textbf{\textit{Example}},%
+    % halign title=flush left,%
+    coltitle=#3,%
+    breakable,%
+    boxrule=0pt,
+    titlerule=0pt,
+    left=-8pt,
+    right=-8pt,
+    top=2pt,
+    bottom=0pt,
+    enlarge left by=-0.1cm,
+    grow to right by=0.21cm,
+    title={#2},fonttitle=\bfseries\large,#1
+}
 \newtcolorbox{untitledcustombox}{%
     enhanced jigsaw,%
     colback=palteal!10,%
+    colframe=palteal,%
+    % colbacktitle=#1!10,
+    coltext=normal,
+    % center title,
+    % size=small,%
+    hbox,%
+    center title,%
+    % boxrule=1pt,%
+    % title=\textbf{\textit{Example}},%
+    % halign title=flush left,%
+    % coltitle=#1,%
+    breakable,%
+    boxrule=0pt,
+    titlerule=0pt,
+    left=-2pt,
+    right=-2pt,
+    top=2pt,
+    bottom=1pt,
+    enlarge left by=-0.1cm,
+    grow to right by=0.21cm,
+}
+\newtcolorbox{untitledcustomboxtransp}{%
+    enhanced jigsaw,%
+    colback=palteal!4,%
     colframe=palteal,%
     % colbacktitle=#1!10,
     coltext=normal,
@@ -968,11 +1017,12 @@
             \setbeamertemplate{itemize item}{\raisebox{0.2em}{\scalebox{0.7}{${\color{palgold}\blacktriangleright}$}}} 
             \item {\bfseries\color{palgold}Large $\boldsymbol{\kappa}$ peak in glasma}
             \setbeamertemplate{itemize item}{\raisebox{0.2em}{\scalebox{0.7}{${\color{palviolet}\blacktriangleright}$}}}
-            \item {\bfseries\color{palviolet}Incompatible with $\boldsymbol{\kappa}$ during EKT}
+            \item {\bfseries\color{palviolet}Approximate agreement with $\boldsymbol{\kappa}$ during EKT} {\color{lightgray}but not quantitative yet}
         \end{itemize}    
               
         \column{.033\textwidth}
     \end{columns}
+    \vspace{-10pt}
     \blfootnote{\scriptsize Avramescu, Băran, Greco, Ipp, Müller, Ruggieri  \href{https://arxiv.org/abs/2307.07999}{{\color{palgold}\texttt{[2307.07999]}$^\text{\tiny\faExternalLink}$}}\\
     \hspace{16.5pt}Boguslavski, Kurkela, Lappi, Lindenbauer, Peuron \href{https://arxiv.org/abs/2303.12520}{{\color{palviolet}\texttt{[2303.12520]}$^\text{\tiny\faExternalLink}$}}
     }
@@ -1041,7 +1091,7 @@
     \begin{center}
         \vspace{1cm}
         {\large\color{normal}How to probe pre-equilibrium}\\[0.3cm]
-        {\huge\color{destacado}Relevant observables}\\[0.3cm]
+        {\huge\color{destacado}Seeking relevant observables}\\[0.3cm]
     \end{center}
 \end{frame}
 \setbeamertemplate{background}{}
@@ -1209,6 +1259,90 @@
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%% SLIDE %%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[noframenumbering]
+    \frametitle{$R_{AA}$ in glasma}
+    % \framesubtitle{Temporal evolution, energy dependence}
+    {\transparent{0.1}\vspace{-15pt}
+    \begin{center}
+        \begin{columns}[onlytextwidth,t]
+            \column{.02\textwidth}
+           \column{.47\textwidth}
+           \begin{center}
+                \begin{custombox2transp}{\normalsize\transparent{0.1} Previous studies}{raablue}
+                    \small
+                    \begin{varwidth}{0.88\textwidth}
+                    \begin{itemize}\itemsep0em 
+                        \itemsep0em
+                        \footnotesize
+                        \setbeamertemplate{itemize item}{\raisebox{0.2em}{\scalebox{0.7}{${\color{raablue}\blacktriangleright}$}}} 
+                        \item \transparent{0.1}$AA$ glasma spectrum initialized with FONLL in $pp$, {\bfseries\color{raablue}no nPDF effect}
+                    \end{itemize}
+                    \end{varwidth}
+                \end{custombox2transp}
+                \begin{untitledcustomboxtransp}
+                    \begin{varwidth}{0.88\textwidth}
+                        \hspace{10pt}\normalsize{\bfseries\color{palteal} \transparent{0.1}This study}: FONLL + {\color{palteal}EPPS16}\hspace{10pt}
+                    \end{varwidth}
+                \end{untitledcustomboxtransp}
+            \end{center}
+                % something
+            % \end{custombox3}
+            \vspace{-20pt}
+            \begin{center}
+                \begin{tikzpicture}[]
+                    \node[anchor=south west,inner sep=0] at (0,0) {\includegraphics[width=0.75\columnwidth]{images/FitForm_EPPS16.pdf}};
+                    \draw<1>[palteal,line width=1pt,fill=palteal,fill opacity=0.02,rounded corners=2pt] (0.685, 0.44) rectangle (2.5, 3.65);
+                \end{tikzpicture}
+            \end{center}
+        %    \begin{figure}
+        %         \centering
+        %         \includegraphics[width=0.75\columnwidth]{images/FitForm_EPPS16.pdf}
+        %     \end{figure}
+            \column{.02\textwidth}
+            \column{.47\textwidth}
+            \begin{center}
+                \begin{custombox2transp}{\normalsize \transparent{0.1}nPDF + glasma}{palgold}
+                    \small
+                    \begin{varwidth}{0.95\textwidth}
+                    \begin{itemize}\itemsep0em 
+                        \itemsep0em
+                        \footnotesize
+                        \setbeamertemplate{itemize item}{\raisebox{0.2em}{\scalebox{0.7}{${\color{palgold}\blacktriangleright}$}}} 
+                        \item \transparent{0.1}Glasma effect modest compared to nPDF
+                    \end{itemize}
+                    \end{varwidth}
+                \end{custombox2transp}
+            \end{center}
+            \vspace{-18pt}
+            \begin{figure}
+                \centering
+                \includegraphics[width=0.82\columnwidth]{images/clean_raa_tau_0.3_charm_quark_Qs_2.0_fonll_pdf_vs_npdf_v3.png}
+            \end{figure}
+            \column{.02\textwidth}
+        \end{columns}    
+    \end{center}
+    % \vspace{-25pt}
+    % \blfootnote{\scriptsize Sun, Coci, Das, Plumari, Ruggieri, Greco \href{https://arxiv.org/abs/1902.06254}{{\color{raablue}\texttt{[1902.06254]$^\text{\tiny\faExternalLink}$}}}\\
+    % \hspace{14pt} Eskola, Paakkinen, Paukkunen, Salgado \href{https://arxiv.org/abs/1612.05741}{{\color{palteal}\texttt{[1612.05741]$^\text{\tiny\faExternalLink}$}}}}
+    }
+
+    \begin{center}
+        % \vspace{5pt}
+        \begin{tikzpicture}[remember picture,overlay]
+            \node[align=center] at (0,4) {
+                \large \textit{Candidate observable}\\[5pt]
+                \huge Heavy quark $R_{AA}$\\[15pt]
+                \Large Glasma causes {\color{palgold}$p_T$ migration}\\[7pt]
+                \Large {\color{palgold}Weak effect} compared to nPDF 
+            };
+        \end{tikzpicture} 
+    \end{center}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%% SUBSECTION %%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -1335,6 +1469,94 @@
     \end{center}
     \vspace{-10pt}
     \blfootnote{\scriptsize ALICE 3 Letter of Intent \href{https://arxiv.org/abs/2211.02491}{{\color{palgold}\texttt{[2211.02491]$^\text{\tiny\faExternalLink}$}}}}
+    
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%% SLIDE %%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[noframenumbering]
+    \frametitle{Decorrelation of $Q\overline{Q}$ pairs}
+    % \framesubtitle{Quantifying the decorrelation in glasma}
+    {\transparent{0.1}
+    % \vspace{-5pt}
+    \begin{center}
+        \begin{columns}[onlytextwidth,t]
+            \column{.02\textwidth}
+           \column{.58\textwidth}
+           \begin{center}
+                \begin{custombox2transp}{\normalsize\transparent{0.1} Decorrelation in glasma}{lightgray}
+                    \small
+                    \begin{varwidth}{1.02\textwidth}
+                    \begin{itemize}\itemsep0em 
+                        \itemsep0em
+                        \footnotesize
+                        \setbeamertemplate{itemize item}{\raisebox{0.2em}{\scalebox{0.7}{${\color{lightgray}\blacktriangleright}$}}} 
+                        \item \transparent{0.1}Two-particle correlations $\boldsymbol{\mathcal{C}(\Delta\phi, \Delta\eta)}$ at $\boldsymbol{\Delta\tau}=\tau-\tau_\mathrm{form}$
+                        \item \transparent{0.1}Initial peak $\delta(\Delta\phi-\pi)\delta(\Delta\eta)$ gets broadened by glasma
+                    \end{itemize}
+                    \end{varwidth}
+                \end{custombox2transp}
+                % \begin{itemize}\itemsep0em 
+                %     \itemsep0em
+                %     \footnotesize\color{lightgray}
+                %     \setbeamertemplate{itemize item}{\raisebox{0.2em}{\scalebox{0.7}{${\color{lightgray}\blacktriangleright}$}}} 
+                %     \item Two-particle correlations extracted as\\
+                %     $\mathcal{C}(\Delta\phi, \Delta\eta)=\dfrac{1}{N_\mathrm{pairs}}\dfrac{\mathrm{d}^2N}{\mathrm{d}\Delta\phi\mathrm{d}\Delta\eta}$
+                % \end{itemize}
+
+                \begin{figure}
+                    \centering
+                    \includegraphics[width=0.5\columnwidth]
+                    {images/paper_Cdetadphi_3D_toy_charm_pT_1_tau_0.01_v2.png}\hfill
+                    % \includegraphics[width=0.31\columnwidth]
+                    % {images/paper_Cdetadphi_3D_toy_charm_pT_1_tau_0.1_v2.png}\quad
+                    \includegraphics[width=0.5\columnwidth]
+                    {images/paper_Cdetadphi_3D_toy_charm_pT_1_tau_0.3_v2.png}
+                \end{figure}
+            \end{center}
+            \column{.02\textwidth}
+            \column{.36\textwidth}
+            \begin{center}
+                \begin{custombox2transp}{\normalsize \transparent{0.1}Azimuthal decorrelation}{palgold}
+                    \small
+                    \begin{varwidth}{0.98\textwidth}
+                    \begin{itemize}\itemsep0em 
+                        \itemsep0em
+                        \footnotesize
+                        \setbeamertemplate{itemize item}{\raisebox{0.2em}{\scalebox{0.7}{${\color{palgold}\blacktriangleright}$}}} 
+                        \item \transparent{0.1}{\bfseries\color{palgold}$\boldsymbol{D\overline{D}}$ angular correlations}
+                        \item \transparent{0.1}Decorrelation width $\sigma_{\Delta\phi}(\Delta\tau)$
+                    \end{itemize}
+                    \end{varwidth}
+                \end{custombox2transp}
+
+                \vspace{-10pt}
+                \begin{figure}
+                    \centering
+                    \includegraphics[width=0.8\columnwidth]{images/final_dNdphi_tau_dep_charm_v2.png}
+                \end{figure}
+            \end{center}
+            \column{.02\textwidth}
+        \end{columns}    
+
+    \end{center}
+    % \vspace{-10pt}
+    % \blfootnote{\scriptsize \transparent{0.1}ALICE 3 Letter of Intent \href{https://arxiv.org/abs/2211.02491}{{\color{palgold}\texttt{[2211.02491]$^\text{\tiny\faExternalLink}$}}}}
+    }
+
+    \begin{center}
+        % \vspace{5pt}
+        \begin{tikzpicture}[remember picture,overlay]
+            \node[align=center] at (0,4) {
+                \large \textit{Candidate observable}\\[5pt]
+                \huge Heavy quarks $\mathcal{C}(\Delta\phi)$\\[15pt]
+                \Large Glasma causes {\color{palgold}azimuthal decorrelation}\\[7pt]
+                \Large {\color{palgold}Large effect} compared to LO back-to-back 
+            };
+        \end{tikzpicture} 
+    \end{center}
 \end{frame}
 
 
@@ -1348,18 +1570,18 @@
     \vspace{-15pt}
     \begin{center}
         \begin{columns}[onlytextwidth,t]
-            \column{.02\textwidth}
+            % \column{.01\textwidth}
            \column{.47\textwidth}
            \begin{center}
                 \begin{custombox2}{\normalsize Glasma+Wong approach}{palgold}
                     \small
-                    \begin{varwidth}{0.92\textwidth}
+                    \begin{varwidth}{0.93\textwidth}
                     \begin{itemize}\itemsep0em 
                         \itemsep0em
                         \footnotesize
                         \setbeamertemplate{itemize item}{\raisebox{0.2em}{\scalebox{0.7}{${\color{palgold}\blacktriangleright}$}}} 
-                        \item Azimuthal decorrelation due to glasma
-                        \item Small $p_T$ pairs immediately decorrelate  
+                        \item Decorrelation due to initial {\bfseries\color{palgold}glasma field}
+                        \item Small $p_T$ pairs {\bfseries\color{palgold}decorrelate immediately} 
                     \end{itemize}
                     \end{varwidth}
                 \end{custombox2}
@@ -1369,19 +1591,19 @@
                 \centering
                 \includegraphics[width=0.7\columnwidth]{images/final_dNdphi_tau_dep_charm_v2.png}
             \end{figure}
-            \column{.02\textwidth}
-            \column{.47\textwidth}
+            \column{.01\textwidth}
+            \column{.49\textwidth}
             \begin{center}
                 \begin{custombox2}{\normalsize MC@sHQ+EPOS model}{Orange}
                     \small
-                    \begin{varwidth}{0.95\textwidth}
+                    \begin{varwidth}{1.06\textwidth}
                     \begin{itemize}\itemsep0em 
                         \itemsep0em
                         \footnotesize
                         \setbeamertemplate{itemize item}{\raisebox{0.2em}{\scalebox{0.7}{${\color{Orange}\blacktriangleright}$}}} 
-                        \item Azimuthal decorrelation during QGP
+                        \item Decorrelation due to {\bfseries\color{Orange}transport in medium}
                         \item Collisional + radiative energy loss effects
-                        \item Small $p_T$ pairs decorrelate at later times
+                        \item Small $p_T$ pairs {\bfseries\color{Orange}decorrelate throughout evolution}
                     \end{itemize}
                     \end{varwidth}
                 \end{custombox2}
@@ -1390,7 +1612,7 @@
             % \vspace{-7pt}
             \begin{figure}
                 \centering
-                \includegraphics[width=0.85\columnwidth]{images/deltaphi_cccor_centrala.eps}
+                \includegraphics[width=0.83\columnwidth]{images/deltaphi_cccor_centrala.eps}
             \end{figure}
             \column{.02\textwidth}
         \end{columns}    
