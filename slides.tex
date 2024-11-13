@@ -1016,7 +1016,7 @@
         \setbeamertemplate{itemize item}{\raisebox{0.2em}{\scalebox{0.7}{${\color{starrysecond}\blacktriangleright}$}}} 
         \item \begin{center}\footnotesize Solve the classical transport equations with {\color{starrysecond}$A^\mu$} the {\color{starrysecond}glasma field}\end{center} 
         \setbeamertemplate{itemize item}{\raisebox{0.2em}{\scalebox{0.7}{${\color{palgold}\blacktriangleright}$}}} 
-        \item \begin{center}\footnotesize Simulation code \href{https://github.com/avramescudana/curraun/tree/wong}{\color{palgold}\texttt{github.com/avramescudana/curraun/tree/wong}$^\text{\tiny\faGithub}$}\end{center} 
+        \item \begin{center}\footnotesize Publicly available code \href{https://github.com/avramescudana/curraun/tree/wong}{\color{palgold}\texttt{github.com/avramescudana/curraun/tree/wong}$^\text{\tiny\faGithub}$}\end{center} 
     \end{itemize}
 \end{frame}
 
@@ -1249,7 +1249,7 @@
     \end{center}
     \vspace{-25pt}
     \blfootnote{\scriptsize Sun, Coci, Das, Plumari, Ruggieri, Greco \href{https://arxiv.org/abs/1902.06254}{{\color{raablue}\texttt{[1902.06254]$^\text{\tiny\faExternalLink}$}}}\\
-    \hspace{14pt} Eskola, Paakkinen, Paukkunen, Salgado \href{https://arxiv.org/abs/1612.05741}{{\color{palteal}\texttt{[1612.05741]$^\text{\tiny\faExternalLink}$}}}}
+    \hspace{14pt} Eskola, Paakkinen, Paukkunen, Salgado \href{https://arxiv.org/abs/1612.05741}{{\color{palteal}\texttt{[1612.05741]$^\text{\tiny\faExternalLink}$}}} \tcbox[on line,boxsep=0pt,left=2pt,right=2pt,top=2pt,bottom=2pt,colframe=white,colback=palteal!10]{\color{normal}Expertise from the {\bfseries\color{palteal}pQCD team}}}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1463,7 +1463,7 @@
 
     \end{center}
     \vspace{-10pt}
-    \blfootnote{\scriptsize ALICE 3 Letter of Intent \href{https://arxiv.org/abs/2211.02491}{{\color{palgold}\texttt{[2211.02491]$^\text{\tiny\faExternalLink}$}}}}
+    \blfootnote{\scriptsize ALICE 3 Letter of Intent \href{https://arxiv.org/abs/2211.02491}{{\color{palgold}\texttt{[2211.02491]$^\text{\tiny\faExternalLink}$}}} \tcbox[on line,boxsep=0pt,left=2pt,right=2pt,top=2pt,bottom=2pt,colframe=white,colback=palgold!10]{\color{normal}Expertise from the {\bfseries\color{palgold}ALICE HP team}}}
     
 \end{frame}
 
@@ -1622,80 +1622,30 @@
 
 \begin{frame}[noframenumbering]
     \frametitle{Where does the correlation go?}
-    % \framesubtitle{Available models}
-    {\transparent{0.1}\vspace{-15pt}
     \begin{center}
-        \begin{columns}[onlytextwidth,t]
-            % \column{.01\textwidth}
-           \column{.47\textwidth}
-           \begin{center}
-                \begin{custombox2transp}{\normalsize \transparent{0.1}Glasma+Wong approach}{palgold}
-                    \small
-                    \begin{varwidth}{0.93\textwidth}
-                    \begin{itemize}\itemsep0em 
-                        \itemsep0em
-                        \footnotesize
-                        \setbeamertemplate{itemize item}{\raisebox{0.2em}{\scalebox{0.7}{${\color{palgold}\blacktriangleright}$}}} 
-                        \item \transparent{0.1}Decorrelation due to initial {\bfseries\color{palgold}glasma field}
-                        \item \transparent{0.1}Small $p_T$ pairs {\bfseries\color{palgold}decorrelate immediately} 
-                    \end{itemize}
-                    \end{varwidth}
-                \end{custombox2transp}
-            \end{center}
-            \vspace{-15pt}
-           \begin{figure}
-                \centering
-                \includegraphics[width=0.7\columnwidth]{images/final_dNdphi_tau_dep_charm_v2.png}
-            \end{figure}
-            \column{.01\textwidth}
-            \column{.49\textwidth}
-            \begin{center}
-                \begin{custombox2transp}{\normalsize \transparent{0.1}MC@sHQ+EPOS model}{Orange}
-                    \small
-                    \begin{varwidth}{1.06\textwidth}
-                    \begin{itemize}\itemsep0em 
-                        \itemsep0em
-                        \footnotesize
-                        \setbeamertemplate{itemize item}{\raisebox{0.2em}{\scalebox{0.7}{${\color{Orange}\blacktriangleright}$}}} 
-                        \item \transparent{0.1}Decorrelation due to {\bfseries\color{Orange}transport in medium}
-                        \item \transparent{0.1}Collisional + radiative energy loss effects
-                        \item \transparent{0.1}Small $p_T$ pairs {\bfseries\color{Orange}decorrelate throughout evolution}
-                    \end{itemize}
-                    \end{varwidth}
-                \end{custombox2transp}
-            \end{center}
-            \vspace{-10pt}
-            % \vspace{-7pt}
-            \begin{figure}
-                \centering
-                \includegraphics[width=0.83\columnwidth]{images/deltaphi_cccor_centrala.eps}
-            \end{figure}
-            \column{.02\textwidth}
-        \end{columns}    
-    \end{center}}
-
-    \begin{center}
-        \vspace{-10pt}
-        \begin{tikzpicture}[remember picture,overlay]
-            \node[align=center] at (0,4) {
-                    \begin{custombox2}{\large This study}{palteal}
-                        \small
-                        \begin{varwidth}{0.58\textwidth}
-                        \begin{itemize}\itemsep0em 
-                            \itemsep0em
-                            % \footnotesize
-                            \setbeamertemplate{itemize item}{\raisebox{0.2em}{\scalebox{0.7}{${\color{palteal}\blacktriangleright}$}}} 
-                            \item Strong glasma fields quickly deccoralate $Q\overline{Q}$ pairs
-                            \item {\bfseries\color{palteal}Model predictions} for $D\overline{D}$ angular correlations will\\
-                                benefit from {\bfseries\color{palteal}including the glasma stage}
-                        \end{itemize}
-                        \end{varwidth}
-                    \end{custombox2}
-            };
-        \end{tikzpicture} 
+        \vspace{5pt}
+        \begin{custombox2}{This study}{palteal}
+            \begin{varwidth}{0.54\textwidth}
+            \small
+            \begin{itemize}\itemsep0em 
+                \itemsep0em
+                % \footnotesize
+                \setbeamertemplate{itemize item}{\raisebox{0.2em}{\scalebox{0.7}{${\color{teal}\blacktriangleright}$}}} 
+                \item Strong glasma fields quickly deccoralate $c\overline{c}$ pairs
+                \item {\bfseries\color{palteal}Model predictions} for $D\overline{D}$ angular correlations\\
+                    need to consider the initial {\bfseries\color{palteal} glasma stage}
+            \end{itemize}
+            \end{varwidth}
+        \end{custombox2}
+        % \vspace{-80pt}
+        \begin{figure}
+            \centering
+            % \caption{\tcbox[on line,boxsep=0pt,left=2pt,right=2pt,top=2pt,bottom=2pt,colframe=white,colback=red!10]{\color{normal}Plot from Sami's SAB slides about {\bfseries\color{red}ALICE3 physics program}}}
+            \hspace{-30pt}\includegraphics[width=0.8\columnwidth]{images/241113-SAB-SamiR-32-crop.pdf}
+        \end{figure}
     \end{center}
-    % \vspace{-15pt}
-    % \blfootnote{\scriptsize Nahrgang, Aichelin, Gossiaux, Werner \href{https://arxiv.org/abs/1305.3823}{{\color{Orange}\texttt{[1305.3823]$^\text{\tiny\faExternalLink}$}}}}
+    \vspace{-5pt}
+    \blfootnote{\scriptsize \tcbox[on line,boxsep=0pt,left=2pt,right=2pt,top=2pt,bottom=2pt,colframe=white,colback=RoyalBlue!10]{\color{normal}Plot from the {\bfseries\color{RoyalBlue}ALICE HP team} SAB talk}}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1720,7 +1670,9 @@
                 \setbeamertemplate{itemize item}{\raisebox{0.2em}{\scalebox{0.7}{${\color{palteal}\blacktriangleright}$}}} 
                 \item Classical transport of heavy quarks in glasma
                 % \item \textbf{Anisotropic} momentum broadening
-                \item {\color{palteal}\textbf{Large}} transport coefficient {\color{palteal}$\boldsymbol{\kappa}$}
+                % \item {\color{palteal}\textbf{Large}} transport coefficient {\color{palteal}$\boldsymbol{\kappa}$}
+                \item Significant effect on {\color{palteal}\textbf{transport coefficients}}\\
+                {\color{lightgray}\scriptsize Discussed in Avramescu \textit{et al.} \href{https://arxiv.org/abs/2307.07999}{{\color{palteal}\texttt{[2307.07999]}}}}
             \end{itemize}
             \end{varwidth}
         \end{custombox2}
@@ -1735,7 +1687,7 @@
                 % \footnotesize
                 \setbeamertemplate{itemize item}{\raisebox{0.2em}{\scalebox{0.7}{${\color{palgold}\blacktriangleright}$}}} 
                 \item Impact of glasma on $R_{AA}$ weaker than \textbf{\color{palgold}nPDF} effect
-                \item Large \textbf{\color{palgold}azimuthal decorrelation} of $Q\overline{Q}$ pairs in glasma \\
+                \item Large \textbf{\color{palgold}azimuthal decorrelation} of $Q\overline{Q}$ pairs in glasma \\[3pt]
                 Relevant in model predictions for \textbf{\color{palgold}$\boldsymbol{D\overline{D}}$ measurements} in $AA$
             \end{itemize}
             \end{varwidth}
@@ -1750,8 +1702,11 @@
                 \itemsep0em
                 % \footnotesize
                 \setbeamertemplate{itemize item}{\raisebox{0.2em}{\scalebox{0.7}{${\color{palviolet}\blacktriangleright}$}}} 
-                \item \textbf{\color{palviolet}Energy loss} mechanism in glasma
+                \item \textbf{\color{palviolet}Energy loss} of a quantum jet in glasma\\
+                    {\color{lightgray}\scriptsize Ongoing collaboration with \textbf{\color{palviolet}Santiago de Compostela}}
                 \item Couple glasma to effective kinetic theory (\textbf{\color{palviolet}EKT})
+                % \\
+                % {\color{lightgray}\scriptsize Bulk medium and heavy quark transport}
             \end{itemize}
             \end{varwidth}
         \end{custombox2}
